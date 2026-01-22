@@ -12,7 +12,7 @@ Covers:
 """
 
 
-@Executable("Addition with channel-wise bias broadcasting (NCHW, batched)")
+@Executable("Addition with channel-wise bias broadcasting (NCHW, batched)", op_type="add")
 def add_channel_bias_broadcast_nchw_batched():
     # Input tensor in NCHW with batch
     x = torch.randn(2, 4, 8, 8, requires_grad=True)

@@ -10,11 +10,11 @@ def range_every_second_row():
     y = x[::2, :]
     return [x], y
 
-@Executable("All rows, columns ::-1 (reverse columns)")
+@Executable("All rows, columns reversed (flip dim=1)")
 def range_reverse_columns():
     x = torch.arange(1, 17, dtype=torch.float32, requires_grad=True).reshape(4, 4)
     # shape: (4, 4) -> (4, 4)
-    y = x[:, ::-1]
+    y = torch.flip(x, dims=[1])
     return [x], y
 
 @Executable("Rows 1:5:2 and columns 0:4:2")
@@ -24,9 +24,9 @@ def range_strided_submatrix():
     y = x[1:5:2, 0:4:2]
     return [x], y
 
-@Executable("Reverse rows (::-1), keep columns :")
+@Executable("Reverse rows (flip dim=0), keep columns")
 def range_reverse_rows():
     x = torch.arange(0, 12, dtype=torch.float32, requires_grad=True).reshape(3, 4)
     # shape: (3, 4) -> (3, 4)
-    y = x[::-1, :]
+    y = torch.flip(x, dims=[0])
     return [x], y

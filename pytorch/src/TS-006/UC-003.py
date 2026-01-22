@@ -12,7 +12,7 @@ Covers:
 """
 
 
-@Executable("Addition with spatial map broadcasting (NCHW, batched)")
+@Executable("Addition with spatial map broadcasting (NCHW, batched)", op_type="add")
 def add_spatial_map_broadcast_nchw_batched():
     # Input tensor in NCHW with batch
     x = torch.randn(2, 3, 6, 5, requires_grad=True)

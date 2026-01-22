@@ -1,17 +1,17 @@
 import torch
 from  gt.core import Executable
 
-@Executable("Basic 2D Convolution")
+@Executable("Basic 2D Convolution", op_type="conv2d")
 def basic_2D_convolution():
     x = torch.randn(1, 3, 32, 32, requires_grad=True)  # Input: (batch_size, channels, height, width)
     conv = torch.nn.Conv2d(3, 16, kernel_size=3, stride=1, padding=0)
     y = conv(x)
-    return [x], y
+    return [x, conv.weight, conv.bias], y
 
 
-@Executable("Strided Convolution")
+@Executable("Strided Convolution", op_type="conv2d")
 def strided_convolution():
     x = torch.randn(1, 3, 32, 32, requires_grad=True) # Input: (batch_size, channels, height, width)
     conv = torch.nn.Conv2d(3, 16, kernel_size=3, stride=2, padding=0)
-    y = conv(x)    
-    return [x], y
+    y = conv(x)
+    return [x, conv.weight, conv.bias], y

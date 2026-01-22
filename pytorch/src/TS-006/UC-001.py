@@ -12,7 +12,7 @@ Covers:
 """
 
 
-@Executable("Addition with scalar broadcasting (NCHW, batched)")
+@Executable("Addition with scalar broadcasting (NCHW, batched)", op_type="add")
 def add_scalar_broadcast_nchw_batched():
     # Input tensor in NCHW with batch
     x = torch.randn(2, 3, 8, 8, requires_grad=True)

@@ -12,7 +12,7 @@ Covers:
 """
 
 
-@Executable("Subtraction with channel-wise bias broadcasting (NCHW, batched)")
+@Executable("Subtraction with channel-wise bias broadcasting (NCHW, batched)", op_type="subtract")
 def sub_channel_bias_broadcast_nchw_batched():
     # Input tensor in NCHW with batch
     x = torch.randn(2, 5, 7, 7, requires_grad=True)
