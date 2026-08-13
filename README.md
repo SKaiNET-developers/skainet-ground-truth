@@ -1,7 +1,7 @@
 # SKaiNET Ground Truth
 
 
-**SKaiNET Ground Truth** project provides a structured, scripted dataset compliant with the specifications defined by the **[gradienttracer](https://github.com/sk-ai-net/gradienttracer)** test framework, serving as the authoritative reference for validating [SKaiNET](https://skainet.sk) library calculations.
+**SKaiNET Ground Truth** project provides a structured, scripted dataset compliant with the specifications defined by the **[gradienttracer](https://github.com/SKaiNET-developers/gradienttracer)** test framework, serving as the authoritative reference for validating [SKaiNET](https://skainet.sk) library calculations.
 ![architecture-diagram.png](architecture-diagram.png)
 
 ## Getting Started
@@ -11,7 +11,7 @@
 To get started with the [SKaiNET](https://skainet.sk) Ground Truth project, first clone the repository locally:
 
 ```bash
-git clone https://github.com/sk-ai-net/skainet-ground-truth.git
+git clone https://github.com/SKaiNET-developers/skainet-ground-truth.git
 cd skainet-ground-truth
 ```
 
@@ -32,12 +32,19 @@ Refer to the [`pytorch/README.md`](pytorch/README.md) for complete setup instruc
 
 ## Introduction
 
-This project is designed to generate structured ground truth data for validating calculations used in the [SKaiNET](https://skainet.sk) machine learning framework. It leverages PyTorch for execution as an ultimative source of truth (we consider results of calculation executed by pytorch as valid) and utilizes the *[gradienttracer](https://github.com/sk-ai-net/gradienttracer) testing framework* for structuring, executing and storing the data in GGUF format.
+This project is designed to generate structured ground truth data for validating calculations used in the [SKaiNET](https://skainet.sk) machine learning framework. It leverages PyTorch for execution as an ultimative source of truth (we consider results of calculation executed by pytorch as valid) and utilizes the *[gradienttracer](https://github.com/SKaiNET-developers/gradienttracer) testing framework* for structuring, executing and storing the data in GGUF format.
 
 
 ## Note on Artifacts
 
 Since the generated artifacts are binary files, they are not included in this repository. Instead, they are created during the execution of the test suites and stored in the `results` directory.
+
+## GGUF Fixture Contract
+
+See [`CONTRACT.md`](CONTRACT.md) for the explicit tensor-naming and metadata conventions
+these GGUF files follow — the thing any consumer (SKaiNET's `skainet-test-groundtruth`
+module today, potentially other frameworks via [numcrux](https://github.com/numcrux)
+later) needs to agree on independent of reading this repo's source.
 
 ## PyTorch Test Suites Overview
 

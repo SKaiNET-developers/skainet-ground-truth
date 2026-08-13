@@ -48,7 +48,7 @@ This project generates structured ground truth data for validating calculations 
    ```
 
 ### Key Dependencies
-- **gradienttracer**: Custom framework from `git+https://github.com/sk-ai-net/gradienttracer.git`
+- **gradienttracer**: Custom framework from `git+https://github.com/SKaiNET-developers/gradienttracer.git`
 - **gguf**: For GGUF file format handling
 - **torch**: PyTorch framework (automatically installs appropriate version)
 - **torchvision**: Required for some test suites (not in requirements.txt)

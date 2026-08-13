@@ -4,6 +4,6 @@ version = "0.1.0"
 description = "Ground truth generation for SKAINet"
 requires-python = ">=3.12.1"
 dependencies = [
-    "gradienttracer @ git+https://github.com/sk-ai-net/gradienttracer.git",
+    "gradienttracer @ git+https://github.com/SKaiNET-developers/gradienttracer.git",
     "gguf",
 ]
