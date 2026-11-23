@@ -1,3 +1,4 @@
 gradienttracer @ git+https://github.com/SKaiNET-developers/gradienttracer.git
 gguf
 torchvision
+scikit-learn==1.5.2
