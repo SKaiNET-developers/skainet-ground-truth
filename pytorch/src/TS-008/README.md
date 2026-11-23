@@ -16,8 +16,21 @@ How a case is written:
 Reference library: scikit-learn (`sklearn.metrics`), version pinned in
 `requirements.txt`.
 
+- `op_params` also holds `"average"` (`"macro"`, `"micro"` or `"binary"`) for a metric that
+  averages over classes, and `"threshold"` when a binary case uses one
+
 Use Cases (UC files):
 - UC-001: Accuracy, one batch and two batches
+- UC-002: Precision
+- UC-003: Recall
+- UC-004: F1
+
+UC-002 to UC-004 hold the same ten scenarios each: macro and micro over two batches, one-hot
+targets, a class that never occurs, a class that is never predicted, a class that is never a
+target, binary with argmax, binary with a threshold (two columns, one column), and a binary
+case where every denominator is zero. The reference is always called with `zero_division=0`
+and without `labels`, so macro averaging runs over the classes that occur in the targets or
+the predictions.
 
 How to run:
 - From the `pytorch` directory with your environment activated:
@@ -25,4 +38,4 @@ How to run:
 
 Notes:
 - The data is random with a fixed seed per case, so a rebuild gives the same files.
-- String values in `op_params` need a `gradienttracer` version that writes them.
+- The scores of the threshold cases are fixed values away from the threshold.
